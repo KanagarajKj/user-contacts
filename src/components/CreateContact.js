@@ -10,7 +10,7 @@ const CreateContact = () => {
     mobileNumber: '',
   });
 
-  const [isError, setIsError] = useState('');
+  
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState(null);
 
@@ -82,12 +82,12 @@ const CreateContact = () => {
   const validate = (values) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     if (!regex.test(values.email)) {
-      setIsError('This is not a valid email format!');
+      alert('This is not a valid email format!');
     }
 
     const regexExp = /^[6-9]\d{9}$/gi;
     if (!regexExp.test(values.mobileNumber)) {
-      setIsError('This is not a valid Mobile Number format!');
+      alert('This is not a valid Mobile Number format!');
     }
   };
 
