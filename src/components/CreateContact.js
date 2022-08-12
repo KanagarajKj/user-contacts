@@ -10,7 +10,7 @@ const CreateContact = () => {
     mobileNumber: '',
   });
 
-  
+
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState(null);
 
@@ -31,7 +31,7 @@ const CreateContact = () => {
     ) {
       alert('Enter All the Details');
     } else if (isEditing) {
-      let EditedPeople = people.map((item) => {
+      const EditedPeople = people.map((item) => {
         if (item.id === editId) {
           return {
             ...item,
