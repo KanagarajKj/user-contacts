@@ -24,7 +24,7 @@ const CreateContact = () => {
     e.preventDefault();
 
     if (
-      !user.firstName||
+      !user.firstName ||
       !user.lastName ||
       !user.email ||
       !user.mobileNumber
@@ -35,14 +35,13 @@ const CreateContact = () => {
         if (item.id === editId) {
           return {
             ...item,
-            firstName: item.firstName,
-            lastName: item.lastName,
-            email: item.email,
-            mobileNumber: item.mobileNumber
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            mobileNumber: user.mobileNumber,
           };
-        } 
+        }
       });
-      console.log(EditedPeople)
 
       setPeople(EditedPeople);
       setUser({
@@ -57,7 +56,6 @@ const CreateContact = () => {
       const addPerson = { ...user, id: uuidv4() };
       let newPeople = [...people, addPerson];
       setPeople(newPeople);
-      console.log(newPeople);
       setUser({
         firstName: '',
         lastName: '',
@@ -66,7 +64,7 @@ const CreateContact = () => {
       });
     }
 
-    setIsError(validate(user));
+    validate(user);
   };
 
   const deletePerson = (id) => {
@@ -75,23 +73,21 @@ const CreateContact = () => {
   };
 
   const updatePerson = (id) => {
-    console.log(id)
     setIsEditing(true);
     let personUpdated = people.find((person) => person.id === id);
     setUser(personUpdated);
     setEditId(id);
-    console.log('clicked');
   };
 
   const validate = (values) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     if (!regex.test(values.email)) {
-      alert('This is not a valid email format!');
+      setIsError('This is not a valid email format!');
     }
 
     const regexExp = /^[6-9]\d{9}$/gi;
     if (!regexExp.test(values.mobileNumber)) {
-      alert('This is not a valid Mobile Number format!');
+      setIsError('This is not a valid Mobile Number format!');
     }
   };
 
@@ -160,15 +156,9 @@ const CreateContact = () => {
             const { id, firstName, lastName, email, mobileNumber } = person;
             return (
               <li key={id} className="list-item">
-                <h2>
-                  <span>FirstName:</span>
-                  {firstName}
-                </h2>
-                <span>
-                  <p>LastName:</p>
-                  <h2>{lastName}</h2>
-                </span>
-                <p>Email:{email}</p>
+                <h2>FirstName: {firstName}</h2>
+                <h2>LastName: {lastName}</h2>
+                <p>Email: {email}</p>
                 <p>MobileNumber: {mobileNumber}</p>
                 <div className="btn-cta">
                   <button
@@ -177,8 +167,7 @@ const CreateContact = () => {
                   >
                     Remove
                   </button>
-                  <button className="edit-btn" 
-                  onClick={() => updatePerson(id)}>
+                  <button className="edit-btn" onClick={() => updatePerson(id)}>
                     Edit
                   </button>
                 </div>

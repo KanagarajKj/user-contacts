@@ -37,8 +37,9 @@ body {
     border-radius: 10px;
     background-color: white;
     width: 90%;
+    max-width: 25rem;
     margin: auto;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -50,7 +51,9 @@ body {
 .form-control input {
     display: block;
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.8rem;
+    border: none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .add-btn {
@@ -58,8 +61,16 @@ body {
     cursor: pointer;
     margin-top: 2rem;
     border: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
     border-radius: 5px;
+    background-color: #00b4d8;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
 }
 
 .contact-list h3 {
@@ -71,8 +82,10 @@ body {
 }
 
 .list {
-    text-align: center;
-    margin-top: 2rem;
+    width: 90%;
+    margin: auto;
+    max-width: 25rem;
+    margin-top: 1rem;
 }
 
 .list-item {
@@ -81,6 +94,35 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    background-color:#d0f4de ;
     padding: 1rem 0 1rem 2rem;
+    margin-top: 2rem;
+    background-color:#caf0f8;
 }
+
+.delete-btn {
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    border: none;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    background-color: #00b4d8;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.edit-btn {
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    border: none;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    background-color: #00b4d8;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
