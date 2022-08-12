@@ -40,6 +40,8 @@ const CreateContact = () => {
             email: user.email,
             mobileNumber: user.mobileNumber,
           };
+        }else {
+          return item;
         }
       });
 
